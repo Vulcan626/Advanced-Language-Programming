@@ -1,0 +1,12 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    int a[3],b[3],dvalue,c,d;
+    cin>>a[0]>>a[1]>>a[2]>>b[0]>>b[1]>>b[2];
+    c=a[0]*3600+a[1]*60+a[2];
+    d=b[0]*3600+b[1]*60+b[2];
+    dvalue=fabs(c-d);
+    cout<<dvalue<<endl;
+    return 0;
+}
