@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    double a,y;
+    double b[10];
+    cin>>a;
+    b[0]=sin(a);
+    b[1]=tan(a);
+    b[2]=log10(a);
+    b[3]=log(a);
+    b[4]=pow(a, 2);
+    b[5]=sqrt(a);
+    b[6]=pow(a, 10);
+    b[7]=pow(a,0.1);
+    b[8]=1/a;
+    b[9]=exp(a);
+    y=fabs(pow(a, 5)+log10(a*a+1)-pow(2, a)-13);
+    for(int i=0;i<=9;i++)
+    {
+        cout<<b[i]<<endl;
+    }
+    cout<<y<<endl;
+    return 0;
+}
