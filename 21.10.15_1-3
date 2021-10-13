@@ -1,0 +1,13 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    int x,y;
+    double f,w,pi;
+    pi=3.1415926;
+    cin>>x>>y;
+    f=pow(x,2)+x-y;
+    w=2*x*pi+pi*pow(y,2);
+    cout<<f<<" "<<w<<endl;
+    return 0;
+}
