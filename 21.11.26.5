@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+   int i,num=0;
+   char s[50];
+   cin.getline(s,50);
+   for(i=0;;i++)
+   {
+   if((s[i]!=32)&&(s[i]!=46)) cout<<s[i];
+   else
+   {
+       num++;
+       cout<<endl;
+    }
+    if(s[i]==46) break;
+    }
+    cout<<num;
+}
