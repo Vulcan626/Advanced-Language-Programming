@@ -1,0 +1,73 @@
+#include<iostream>
+using namespace std;
+int Max(int x[])
+{
+    int max=0,i;
+    for(i=0;i<10;i++)
+    {
+        if(max<x[i]) max=x[i];
+    }
+    return max;
+
+}
+int Min(int x[])
+{
+    int min,i;
+    for(i=0,min=x[0];i<10;i++)
+    {
+        if(min>x[i]) min=x[i];
+    }
+    return min;
+}
+void sx(int a[],int n)
+{
+    
+    int i,j,t=0;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-1-i;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                t=a[j];
+                a[j]=a[j+1];
+                a[j+1]=t;
+            }
+        }
+    }
+}
+void jx(int a[],int n)
+{
+    int i,j,t=0;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-1-i;j++)
+        {
+            if(a[j]<a[j+1])
+            {
+                t=a[j];
+                a[j]=a[j+1];
+                a[j+1]=t;
+            }
+        }
+    }
+}
+int main()
+{
+    int a[10],b[10],i,c[20];
+    for(i=0;i<10;i++) cin>>a[i];
+    for(i=0;i<10;i++) cin>>b[i];
+    sx(a,10);
+    jx(b,10);
+    cout<<Max(a)<<" "<<Min(a)<<endl;
+    cout<<Max(b)<<" "<<Min(b)<<endl;
+    for(i=0;i<10;i++) cout<<a[i]<<" ";
+    cout<<endl;
+    for(i=0;i<10;i++) cout<<b[i]<<" ";
+    cout<<endl;
+    for(i=0;i<10;i++) c[i]=a[i];
+    for(i=10;i<20;i++) c[i]=b[i-10];
+    sx(c,20);
+    for(i=0;i<20;i++) cout<<c[i]<<" ";
+    return 0;
+}
