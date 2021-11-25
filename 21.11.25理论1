@@ -1,0 +1,32 @@
+#include <string>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class stu{
+ private:
+    string Name;
+    int Num;
+    float cpp,eng,math;
+ public:
+    void set(){
+        cin>>Name>>Num>>cpp>>eng>>math;
+    }
+    void print(){
+        cout<<Name<<" "<<Num<<" "<<cpp<<" "<<eng<<" "<<math<<endl;
+    }
+    void sum(){
+        cout<<fixed << setprecision(2)<<(cpp+eng+math)<<" ";
+    }
+    void average(){
+        cout<<fixed << setprecision(2)<<(cpp+eng+math)/3;
+    }
+};
+int main()
+{
+    stu stu1;
+    stu1.set();
+    stu1.print();
+    stu1.sum();
+    stu1.average();
+    return 0;
+}
