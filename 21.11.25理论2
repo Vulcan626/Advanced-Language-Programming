@@ -1,0 +1,44 @@
+//复数类
+#include<iostream>
+#include<cmath>
+using namespace std;
+class Complex
+{
+    private:
+        int real;
+        int image;
+    public:
+        void input()
+        {
+        	cin>>real>>image;
+        }
+        void output()
+        {
+        	cout<<real<<","<<image<<"i"<<endl;
+        }
+        void add(Complex,Complex);
+        friend void sub(Complex,Complex,Complex *);
+};
+
+void Complex::add(Complex a,Complex b)
+{
+    real=a.real+b.real;
+    image=a.image+b.image;
+}
+void sub(Complex a,Complex b,Complex *c)
+{
+    c->real=a.real-b.real;
+    c->image=a.image-b.image;
+}
+int main(void)
+{
+    Complex a1,a2,a3,a4;
+    a1.input();
+    a2.input();
+    a3.add(a1,a2);
+    sub(a1,a2,&a4);
+    a3.output();
+    a4.output();
+    return 0;
+}
+
