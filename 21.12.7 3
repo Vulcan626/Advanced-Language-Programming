@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+void split(double x,int*iPart,double*fPart)
+{
+    *iPart=x;
+    *fPart=x-*iPart;
+}
+int main()
+{
+    double num;
+    int ip;
+    double fp;
+    cin>>num;
+    split(num,&ip,&fp);
+    cout<<ip<<' '<<fp;
+    return 0;
+}
