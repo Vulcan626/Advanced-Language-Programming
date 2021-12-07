@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+int strlength(char*str)
+{
+    char *p=str;
+    int count=0;
+    while(*p++!='\0') count++;
+    return count;
+}
+char*findLast(char *sourceStr,char *subStr)
+{
+    int len1=0,len2=0;
+        len1=strlength(sourceStr);
+        len2=strlength(subStr);
+        char *p1=sourceStr+len1-1,*p2=subStr+len2-1;
+        if(len1<len2) return NULL;
+        else
+        {
+              while(*p1!=*(sourceStr-1)&&*p2!=*(subStr-1))
+               {
+                  if(*p1==*p2) p2--;
+                  else p2=subStr+len2-1;
+                  p1--;
+               }
+          if(*p2==*(subStr-1)) return p1+1;
+          else return NULL;
+        }
+}
+int main()
+{
+    char source[100],sub[100];
+    char *p=source;
+    cin.getline(source, 100);
+    cin.getline(sub, 100);
+    p=findLast(source, sub);
+    if(p==NULL) cout<<"-1"<<endl;
+    else cout<<p-source<<endl;
+    return 0;
+}
+
