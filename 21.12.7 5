@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int f(unsigned long x,int n,int &Lxn)
+{
+    int right,p[100],num=0;;
+    while(x>0)
+    {
+        p[num++]=x%10;
+        x/=10;
+    }
+    if(n>0&&n<=num)
+    {
+        right=p[n-1];
+        Lxn=p[num-n];
+    }
+    else
+    {
+        right=0;
+        Lxn=0;
+    }
+    return right;
+}
+int main()
+{
+    int n;
+    unsigned long x;
+    cin>>x>>n;
+    int Lxn,Rxn;
+    Rxn=f(x,n,Lxn);
+    cout<<Rxn<<' '<<Lxn;
+    return 0;
+}
