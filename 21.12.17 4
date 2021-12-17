@@ -1,51 +1,58 @@
 #include<iostream>
-#include<iomanip>
 #include<cstring>
 using namespace std;
 class CStudent
 {
 private:
-    char Name[10],Place[10];
-    int Number,Age;
-    double Score;
+ char Name[10],Place[10];
+ int Number,Age;
+ double Score;
 public:
-    CStudent(CStudent &stu)
-    {
-        strcpy(Name,stu.Name);
-        strcpy(Place,stu.Place);
-        Number=stu.Number;
-        Age=stu.Age;
-        Score=stu.Score;
-    }
-    CStudent(char *name,char *place,int number,int age,double score)
-    {
-        strcpy(Name,name);
-        strcpy(Place,place);
-        Number=number;
-        Age=age;
-        Score=score;
-    }
-    CStudent operator+(CStudent stu)
-    {
-        CStudent temp(*this);
-        temp.Score=Score+stu.Score;
-        return temp;
-    }
-    void Display()
-    {
-        cout<<"姓名："<<Name<<setfill(' ')<<setw(10)<<"籍贯："<<Place<<setfill(' ')<<setw(8)<<" 学号："<<Number<<" 年龄："<<Age<<setfill(' ')<<setw(10)<<"成绩："<<Score<<endl;
-    }
-    double Show()
-    {
-        return Score;
-    }
+ CStudent(CStudent &stu)
+ {
+     strcpy(Name,stu.Name);
+     strcpy(Place,stu.Place);
+     Number=stu.Number;
+     Age=stu.Age;
+     Score=stu.Score;
+ }
+ CStudent(char *name,char *place,int number,int age,double score)
+ {
+     strcpy(Name,name);
+     strcpy(Place,place);
+     Number=number;
+     Age=age;
+     Score=score;
+ }
+ CStudent operator+(CStudent stu)
+ {
+     CStudent temp(*this);
+     temp.Score=Score+stu.Score;
+     return temp;
+ }
+ void Display()
+ {
+     cout<<"姓名: "<<Name<<" 籍贯: "<<Place<<" 学号: "<<Number<<" 年龄: "<<Age<<" 成绩: "<<Score<<endl;
+ }
+ double Show()
+ {
+     return Score;
+ }
 };
 int main()
 {
-    CStudent stu1("WANGJIWO","江苏",1,18,98),stu2("WOSHISHUI","上海",2,17,100),stu0(stu1);
+    char Name1[10],Place1[10];
+    int Number1,Age1;
+    double Score1;
+    char Name2[10],Place2[10];
+    int Number2,Age2;
+    double Score2;
+    cin>>Name1>>Place1>>Number1>>Age1>>Score1;
+    cin>>Name2>>Place2>>Number2>>Age2>>Score2;
+    CStudent stu1(Name1,Place1,Number1,Age1,Score1),stu2(Name2,Place2,Number2,Age2,Score2),stu0(stu1);
     stu1.Display();
     stu2.Display();
     stu0=stu1+stu2;
-    cout<<"成绩总和为："<<stu0.Show()<<endl;
+    cout<<"成绩总和为: "<<stu0.Show()<<endl;
     return 0;
 }
