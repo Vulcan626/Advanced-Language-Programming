@@ -1,0 +1,36 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class Prime
+{
+private:
+    int num;
+public:
+    Prime(int n):num(n){};
+    void input()
+    {
+        cin>>num;
+    }
+    bool judge()
+    {
+            if (num<=3) return num>1;
+            for(int i=2;i<sqrt(num);i++)
+            {
+                if (num%i==0) return false;
+            }
+            return true;
+    }
+    void output()
+    {
+        cout<<num<<endl;
+    }
+};
+int main()
+{
+    int n;
+    cin>>n;
+    Prime prime(n);
+    if(prime.judge()) cout<<"prime"<<endl;
+    else cout<<"not prime"<<endl;
+    return 0;
+}
