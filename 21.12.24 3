@@ -1,0 +1,64 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class Shape
+{
+public:
+    virtual float areas()=0;
+};
+class Circle:public Shape
+{
+public:
+    Circle(float a):r(a){}
+    float areas();
+private:
+    float r;
+};
+float Circle::areas()
+{
+    float c;
+    c=3.14159*r*r;
+    return c;
+}
+class Rectangle:public Shape
+{
+private:
+    float l,w;
+public:
+    Rectangle(float a,float b):l(a),w(b){}
+    float areas();
+ 
+};
+float Rectangle::areas()
+{
+    float c;
+    c=l*w;
+    return c;
+}
+class Triangle:public Shape
+{
+private:
+    float l,h;
+public:
+    Triangle(float a,float b):l(a),h(b){}
+    float areas();
+};
+float Triangle::areas()
+{
+    float c;
+    c=l*h*0.5;
+    return c;
+}
+int main()
+{
+    float c11,r12,r11,t11,t12;
+    cin>>c11>>r11>>r12>>t11>>t12;
+    Circle c1(c11);
+    Rectangle r1(r11,r12);
+    Triangle t1(t11,t12);
+    cout.setf(ios::fixed);
+    cout<<"area of circle="<<fixed<<setprecision(2)<<c1.areas()<<endl;
+    cout<<"area of rectangle="<<fixed<<setprecision(2)<<r1.areas()<<endl;
+    cout<<"area of triangle="<<fixed<<setprecision(2)<<t1.areas()<<endl;
+    return 0;
+}
