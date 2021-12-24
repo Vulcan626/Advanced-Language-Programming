@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+class Fruit
+{
+    public:
+        double w,p;
+        virtual double price()=0;
+        //friend Fruit operator+();
+};
+class Apple: public Fruit
+{
+    public:
+        Apple()
+        {
+            cin>>w>>p;
+        }
+        double price()
+        {
+            return p*w;
+        }
+};
+class Banana: public Fruit
+{
+    public:
+        Banana()
+        {
+            cin>>w>>p;
+        }
+        double price()
+        {
+            return p*w*0.5;
+        }
+};
+class Orange: public Fruit
+{
+    public:
+        Orange()
+        {
+            cin>>w>>p;
+        }
+        double price()
+        {
+            if(w>10)
+        {
+            return p*w*0.5;
+        }
+        if (w>5)
+            return p*w*0.8;
+        else
+            return p*w;
+        }
+};
+int main(void)
+{
+ 
+    char ch;
+    double total=0,weight,price;
+    while ((cin>>ch&&ch!='q'))
+    {
+        if(ch=='a')
+            {
+                Apple a;
+                total+=a.price();
+            }
+        else if(ch=='b')
+            {
+                Banana b;
+                total+=b.price();
+            }
+        else if(ch=='o')
+            {
+                Orange o;
+                total+=o.price();
+            }
+    }
+    cout<<total<<endl;
+    return 0;
+}
