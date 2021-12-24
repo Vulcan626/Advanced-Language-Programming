@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+class Animal
+{
+public:
+ Animal(int h,int w,char s):height(h),weight(w),sex(s){}
+  virtual void display()
+  {
+   cout<<"height:"<<height<<endl;
+   cout<<"weight:"<<weight<<endl;
+   cout<<"sex:"<<sex<<endl;
+  }
+protected:
+ int height,weight;
+ char sex;
+};
+
+class aqu:public Animal
+{
+public:
+ aqu(int h,int w,char s,int s_s):Animal(h,w,s),swimming_speed(s_s){}
+ virtual void display()
+ {
+  Animal::display();
+  cout<<"swimming_speed:"<<swimming_speed<<endl;
+ }
+private:
+ int swimming_speed;
+};
+
+class ter:public Animal
+{
+public:
+ ter(int h,int w,char s,int r_s):Animal(h,w,s),running_speed(r_s){}
+ virtual void display()
+ {
+  Animal::display ();
+  cout<<"running_speed:"<<running_speed<<endl;
+ }
+private:
+ int running_speed;
+};
+
+int main()
+{
+ int a,b,s,r;
+ char c;
+ cin>>a>>b>>c;
+ Animal pa(a,b,c);
+ cin>>a>>b>>c>>s;
+ aqu pb(a,b,c,s);
+ cin>>a>>b>>c>>r;
+ ter pc(a,b,c,r);
+ pa.display();
+ pb.display();
+ pc.display();
+ return 0;
+}
