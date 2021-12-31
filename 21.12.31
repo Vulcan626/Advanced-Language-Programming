@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+struct Node
+{
+    int data;
+    Node * next;
+};
+struct List
+{
+    Node * head;
+    int length;
+};
+void Add(List &list,int dt)
+{
+    Node * pCur=new Node;
+    pCur->data=dt;
+    pCur->next=NULL;
+    if(list.head==NULL)
+    {
+        list.head=pCur;
+        list.length=1;
+    }
+    else
+    {
+        Node * pt =list.head;
+        while(pt->next!=NULL) pt=pt->next;
+        pt->next=pCur;
+        list.length++;
+    }
+}
+void Display(Node * head)
+{
+    Node * pCur=head;
+    while(pCur!=NULL)
+    {
+        cout<<pCur->data;
+        if(pCur->next) cout<<" ";
+        pCur=pCur->next;
+    }
+}
+Node* Merge(Node* head1, Node* head2) {
+    if (!head1) {
+        return head2;
+    }
+    if (!head2) {
+        return head1;
+    }
+    if (head1->data < head2->data) {
+        head1->next = Merge(head1->next, head2);
+        return head1;
+    }
+    else {
+        head2->next = Merge(head1, head2->next);
+        return head2;
+    }
+}
+int main()
+{
+    List lst1,lst2;
+    lst1.head=NULL;
+    lst1.length=0;
+    lst2.head=NULL;
+    lst2.length=0;
+    int data;
+    for(int i=0;i<5;i++)
+    {
+        cin>>data;
+        Add(lst1,data);
+    }
+    for(int i=0;i<5;i++)
+    {
+        cin>>data;
+        Add(lst2,data);
+    }
+    Display(Merge(lst1.head, lst2.head));
+    return 0;
+}
+
