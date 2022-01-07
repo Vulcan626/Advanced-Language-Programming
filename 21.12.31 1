@@ -1,0 +1,36 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+void getform()
+{
+    int length=5,flag=0;
+    double a[length],temp;
+    ifstream file("data.txt",ios::in);
+    if(!file)
+    {
+        cerr<<"open data.txt error!"<<endl;
+        exit(1);
+    }
+    for(int i=0;i<length;i++) file>>a[i];
+    for(int i=0;i<length-1;i++)
+    {
+        flag=1;
+        for(int j=0;j<length-i;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+                flag=0;
+            }
+        }
+        if(flag) break;
+    }
+    for(int i=length-1;i>=0;i--) cout<<a[i]<<" ";
+}
+int main()
+{
+    getform();
+    return 0;
+}
